@@ -1,20 +1,18 @@
+#include <iostream>
 #include <windows.h>
-#include <stdio.h>
 #include <xinput.h>
 #pragma comment(lib,"xinput.lib")
 
 int main()
 {
 	XINPUT_STATE state;
-	ZeroMemory(&state, sizeof(XINPUT_STATE));
 
 	while (true)
 	{
-		DWORD dwResult = XInputGetState(0, &state);
-		WORD wButtons = state.Gamepad.wButtons;
-		if (wButtons & XINPUT_GAMEPAD_A)
+		DWORD Result = XInputGetState(0, &state);
+		if (state.Gamepad.wButtons & XINPUT_GAMEPAD_A)
 		{
-			printf("Button: A\n");
+			std::cout << "Button: A\n";
 		}
 		Sleep(150);
 	}
