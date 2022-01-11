@@ -12,7 +12,8 @@ int main()
         DWORD Result = XInputGetKeystroke(0, 0, &stroke);
         if (Result == ERROR_SUCCESS)
         {
-            if (stroke.VirtualKey == VK_PAD_A) {
+            if ((stroke.VirtualKey == VK_PAD_A) && (stroke.Flags & XINPUT_KEYSTROKE_KEYDOWN))
+            {
                 std::cout << "Button: A" << std::endl;
             }
         }
