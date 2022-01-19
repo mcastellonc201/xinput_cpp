@@ -17,7 +17,6 @@ int main()
                 std::cout << "Button: A" << std::endl;
             }
         }
-        Sleep(150);
     }
     return 0;
 }
